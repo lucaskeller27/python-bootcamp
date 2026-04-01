@@ -1,12 +1,12 @@
 # Day 7 Project - Hangman
 
-import random, os, hangman_art
-from hangman_words import word_list
+import random, os, forca_arte
+from forca_palavras import word_list
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
 lives_left = 6
-print(hangman_art.logo)
+print(forca_arte.logo)
 
 # Selecting a word
 
@@ -41,7 +41,7 @@ while not game_over:
             answer += "_"
     
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(hangman_art.logo, "\n")
+    print(forca_arte.logo, "\n")
     
     # Telling the user if their guess is correct or not
     
@@ -56,7 +56,7 @@ while not game_over:
     made_guesses.append(guess)
     
     print("\n", answer, "\n")
-    print(hangman_art.stages[lives_left])
+    print(forca_arte.stages[lives_left])
     
     # Checking if the game should end
     
