@@ -1,15 +1,15 @@
-# Day 2 Project – Tip calculator
+# Projeto do Dia 2 - Calculadora de gorjeta
 
-print("### Tip Calculator ###")
+print("### Calculadora de Gorjeta ###")
 
-bill = float(input("What was the total bill?\n-> $"))
-tip = int(input("What percentage tip would you like to give? (Answer with numbers only)\n-> "))
-bill_splitters = int(input("And how many people are splitting the bill?\n-> "))
+conta = float(input("Qual é o total a pagar?\n-> R$ "))
+gorjeta = int(input("Qual a porcentagem de gorjeta que você gostaria de dar? (Responda somente com números)\n-> "))
+pagantes = int(input("E em quantas pessoas a conta será dividida?\n-> "))
 
-# total = (bill * ((tip / 100) + 1))
-total = (((tip / 100) * bill) + bill)
+# total = (conta * ((gorjeta / 100) + 1))
+total = (((gorjeta / 100) * conta) + conta)
 # print(total)
-share = round((total / bill_splitters), 2)
+racha = round((total / pagantes), 2)
 
-# print(f"Each person should pay ${share}")
-print("Each person should pay $%.2f" %(share))
+# print(f"Cada pessoa deverá pagar R${racha}")
+print("Cada pessoa deverá pagar R$ %.2f" %(racha))

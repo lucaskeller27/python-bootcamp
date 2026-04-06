@@ -1,9 +1,8 @@
-# Day 1 Project – Band name generator
+# Projeto do Dia 1 - Gerador de nome de banda
 
-print("### Band Name Generator ###")
+print("### Gerador de Nome de Banda ###")
 
-city = input("What is the name of the city you're from?\n-> ")
-pet = input("If you had just adopted a pet animal, what would you name it?\n-> ")
+cidade = input("Como se chama a cidade de onde você é?\n-> ")
+animal = input("Se você tivesse acabado de adotar um animal de estimação, que nome lhe daria?\n-> ")
 
-print("Your band name is: #", city, pet, "#")
-# print(f"Your band name is: # {city} {pet} #")
+print(f"Seu nome de banda é # {animal} {cidade} #")
