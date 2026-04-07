@@ -1,4 +1,4 @@
-# Day 3 Project - Treasure Island
+# Projeto do Dia 3 - Ilha do Tesouro
 
 print(r'''
 *******************************************************************************
@@ -22,28 +22,28 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/_____ /
 *******************************************************************************
 ''')
-print("Welcome to Treasure Island.\n")
-print("Your mission is to find the treasure.")
+print("Bem-vindo(a) à Ilha do Tesouro.\n")
+print("Sua missão é encontrar o tesouro.")
 
-choice_one = input("You see two separate paths in front of you. Do you want to go left or right? (Type L or R)\n-> ").upper()
+primeira_escolha = input("Você vê dois caminhos diferentes seguindo à sua frente. Você quer seguir o da esquerda (digite E) ou da direita (digite D)?\n-> ").upper()
 
-if choice_one == "R":
-    print("You run into a snake, get bitten and sadly pass away. Game over.")
-elif choice_one == "L":
-    choice_two = input("You arrive at a lake with an island in the middle. Do you want to walk around it or try to swim across? (Type W or S)\n-> ").upper()
-    if choice_two == "S":
-        print("You get attacked by a shark and tragically pass away. Game over.")
-    elif choice_two == "W":
-        choice_three = input("You find some logs and make a raft to cross the lake. You arrive at the island and find a house with 3 doors: one red, one yellow, and one blue. Which one do you want to open? (Type R, Y or B)\n-> ").upper()
-        if choice_three == "R":
-            print("As you enter the room, you fall into a pit and sadly pass away. Game over.")
-        elif choice_three == "B":
-            print("You enter a room full of booby traps and get shot with a hundred arrows. Game over.")
-        elif choice_three == "Y":
-            print("Congratulations, you found the treasure! You win!")
+if primeira_escolha == "D":
+    print("Você se depara com uma cobra, que lhe morde e tragicamente lhe leva ao óbito. Fim de jogo.")
+elif primeira_escolha == "E":
+    segunda_escolha = input("Você chega a um lago com uma ilha no meio. Você tenta dar a volta pelo lago (digite L), ou nadar até a ilha (digite I)?\n-> ").upper()
+    if segunda_escolha == "I":
+        print("Você é atacado por um tubarão que tragicamente lhe leva ao óbito. Fim de jogo.")
+    elif segunda_escolha == "L":
+        terceira_escolha = input("Você encontra uns troncos de madeira e consegue fazer uma jangada para atravessar o lago. Você desembarca na ilha e encontra uma casa com três portas: uma vermelha (digite V), uma amarela (digite M), e uma azul (digite Z). Qual delas você deseja abrir?\n-> ").upper()
+        if terceira_escolha == "V":
+            print("Ao entrar no quarto, você cai num poço e falece tragicamente. Fim de jogo.")
+        elif terceira_escolha == "Z":
+            print("Você entra numa sala cheia de armadilhas e é perfurado por cem flechas. Fim de jogo.")
+        elif terceira_escolha == "M":
+            print("Parabéns, você encontrou o tesouro! Você venceu!")
         else:
-            print("Please try again and enter a valid option (R, Y or B).")
+            print("Por favor tente novamente e digite uma opção válida (V, M ou Z).")
     else: 
-        print("Please try again and enter a valid option (W or S).")
+        print("Por favor tente novamente e digite uma opção válida (L ou I).")
 else: 
-    print("Please try again and enter a valid option (L or R).")
+    print("Por favor tente novamente e digite uma opção válida (E ou D).")
