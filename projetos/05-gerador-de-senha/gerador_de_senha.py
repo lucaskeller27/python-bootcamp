@@ -1,59 +1,59 @@
-# Day 5 Project - Password generator
+# Projeto do Dia 5 - Gerador de senha
 
 import random, os
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+simbolos = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-# Getting user input
+# Receber entrada do usuário
 
-print("# Welcome to the Password Generator! #")
-num_letters = int(input("How many letters would you like?\n-> "))
-num_symbols = int(input("How many symbols would you like?\n-> "))
-num_numbers = int(input("How many numbers would you like?\n-> "))
-is_random_order = input("Do you want the characters to be in random order? (Type Y or N)\n-> ").upper()
+print("# Bem-vindo(a) ao Gerador de Senha! #")
+num_letras = int(input("Quantas letras você gostaria?\n-> "))
+num_simbolos = int(input("Quantos símbolos você gostaria?\n-> "))
+num_numeros = int(input("Quantos números você gostaria?\n-> "))
+ordem_aleatoria = input("Você gostaria que os caracteres fiquem em ordem aleatória? (Digite S ou N)\n-> ").upper()
 
-# Getting the requested amount of each type of character
+# Pegar a quantidade certa de cada tipo de caractere
 
-letters_list = random.choices(letters, k=(num_letters))
-symbols_list = random.choices(symbols, k=(num_symbols))
-nums_list = random.choices(numbers, k=(num_numbers))
+lista_de_letras = random.choices(letras, k=(num_letras))
+lista_de_simbolos = random.choices(simbolos, k=(num_simbolos))
+lista_de_numeros = random.choices(numeros, k=(num_numeros))
 
-# Adding all the characters onto a list
+# Adicionar todos os caracteres a uma lista
 
-password_list = []
-password_list.extend(letters_list)
-password_list.extend(symbols_list)
-password_list.extend(nums_list)
+caracteres_da_senha = []
+caracteres_da_senha.extend(lista_de_letras)
+caracteres_da_senha.extend(lista_de_simbolos)
+caracteres_da_senha.extend(lista_de_numeros)
 
-# Checking if the user gave in the correct input
+# Verificar se o usuário deu entrada correta
 
-if type(num_letters) != int or type(num_symbols) != int or type(num_numbers) != int:
-    print("Please type in a whole number.")
+if type(num_letras) != int or type(num_simbolos) != int or type(num_numeros) != int:
+    print("Por favor, tente novamente digitando apenas números inteiros.")
 
-# Shuffling the list and converting it into a string / converting the list into a string
+# Embaralhar a lista e convertê-la numa cadeia
 
-if is_random_order == "Y":
-    random.shuffle(password_list)
-    random.shuffle(password_list)
-    password = ''.join(password_list)
-elif is_random_order == "N":
-    password = ''.join(password_list)
+if ordem_aleatoria == "S":
+    random.shuffle(caracteres_da_senha)
+    random.shuffle(caracteres_da_senha)
+    senha = ''.join(caracteres_da_senha)
+elif ordem_aleatoria == "N":
+    senha = ''.join(caracteres_da_senha)
 else:
-    print("Please type in a valid option (Y or N)")
+    print("Por favor, tente novamente digitando uma opção válida (S ou N).")
 
-print(f"Your custom-made password is:\n-> {password}")
+print(f"Sua senha personalizada é:\n-> {senha}")
 
-# Other (longer) method using for loops 
+# Outro método (mais longo) usando laços "for" 
 
-# for x in range(1, (num_letters + 1)):
-#     password += random.choice(letters)
+# for x in range(1, (num_letras + 1)):
+#     senha += random.choice(letras)
 
-# for x in range(1, (num_symbols + 1)):
-#     password += random.choice(symbols)
+# for x in range(1, (num_simbolos + 1)):
+#     senha += random.choice(simbolos)
 
-# for x in range(1, (num_numbers + 1)):
-#     password += random.choice(numbers)
+# for x in range(1, (num_numeros + 1)):
+#     senha += random.choice(numeros)

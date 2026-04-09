@@ -1,10 +1,10 @@
-# Day 4 Project - Rock-paper-scissors
+# Projeto do Dia 4 - Pedra, Papel, Tesoura
 
 import random, os
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-rock = '''
+pedra = '''
     _______
 ---'   ____)
       (_____)
@@ -13,7 +13,7 @@ rock = '''
 ---.__(___)
 '''
 
-paper = '''
+papel = '''
     _______
 ---'   ____)______
           ________)
@@ -22,7 +22,7 @@ paper = '''
 ---.____________)
 '''
 
-scissors = '''
+tesoura = '''
     _______
 ---'   ____)______
           ________)
@@ -31,39 +31,39 @@ scissors = '''
 ---.__(____)
 '''
 
-game_images = [rock, paper, scissors]
+imagens_do_jogo = [pedra, papel, tesoura]
 
-# Taking in user input
+# Receber a entrada do usuário
 
-user_input = input("What do you choose? Rock, paper, or scissors? (Type R, P, or S)\n-> ").upper()
+entrada_usuario = input("Pedra, papel ou tesoura? (Digite E, A ou T)\n-> ").upper()
 
-# Converting user input to integers, and printing the matching ASCII art
+# Converter a entrada do usuário em inteiros, e imprimir a arte ASCII
 
-if user_input == "R":
-    user_choice = 0
-elif user_input == "P":
-    user_choice = 1
-elif user_input == "S":
-    user_choice = 2
+if entrada_usuario == "E":
+    escolha_usuario = 0
+elif entrada_usuario == "A":
+    escolha_usuario = 1
+elif entrada_usuario == "T":
+    escolha_usuario = 2
 else:
-    print("Please type in a valid option (R, P or S).")
+    print("Por favor tente novamente e digite uma opção válida (E, A ou T).")
     
-print(game_images[user_choice])
+print(imagens_do_jogo[escolha_usuario])
     
-# Getting the CPU's "choice" and printing the matching ASCII art
+# Receber a "escolha" do computador e imprimir a arte ASCII
     
-cpu_choice = random.randint(0, 2)
+escolha_computador = random.randint(0, 2)
 
-print("The computer chooses:",)
-print(game_images[cpu_choice])
+print("O computador escolhe:",)
+print(imagens_do_jogo[escolha_computador])
 
-# Deciding who won and who lost, and announcing the result
+# Verificar quem ganhou e quem perdeu, e anunciar o resultado
 
-if user_choice == cpu_choice:
-    print("It's a draw!")
-elif (user_choice == 0 and cpu_choice == 1) or (user_choice == 1 and cpu_choice == 2) or (user_choice == 2 and cpu_choice == 0):
-    print("You lose.")
-elif (user_choice == 0 and cpu_choice == 2) or (user_choice == 1 and cpu_choice == 0) or (user_choice == 2 and cpu_choice == 1):
-    print("You win!")
+if escolha_usuario == escolha_computador:
+    print("É um empate!")
+elif (escolha_usuario == 0 and escolha_computador == 1) or (escolha_usuario == 1 and escolha_computador == 2) or (escolha_usuario == 2 and escolha_computador == 0):
+    print("Você perdeu.")
+elif (escolha_usuario == 0 and escolha_computador == 2) or (escolha_usuario == 1 and escolha_computador == 0) or (escolha_usuario == 2 and escolha_computador == 1):
+    print("Você venceu!")
 else:
-    print("An error has occurred. Please try again.")
+    print("Ocorreu um erro, por favor tente novamente.")
