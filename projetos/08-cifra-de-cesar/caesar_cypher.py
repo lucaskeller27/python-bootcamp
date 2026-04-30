@@ -8,20 +8,19 @@ def encrypt(original_text, shift_amount):
     encrypted_text = ""
     
     for letter in original_text:
-        encrypted_text += alphabet[(alphabet.index(letter)) + shift_amount]
+        try:
+            encrypted_text += alphabet[alphabet.index(letter) + shift_amount]
+        except IndexError:
+            encrypted_text += alphabet[alphabet.index(letter) + (shift_amount) - 26]
+        except ValueError:
+            encrypted_text += letter
 
-    print(encrypted_text)
+    print(f"Here is the encoded result: {encrypted_text}")
 
 def decrypt(encrypted_text, shift_amount):
     pass
 
 if direction == "encode":
-    encrypt(text, shift)
+    encrypt(original_text=text, shift_amount=shift)
 if direction == "decode":
-    decrypt(text, shift)
-
-# TODO-4: What happens if you try to shift z forwards by 9? Can you fix the code?
-
-# TODO-3: Call the 'encrypt()' function and pass in the user inputs. You should be able to test the code and encrypt a
-#  message.
-
+    decrypt(encrypted_text=text, shift_amount=shift)
