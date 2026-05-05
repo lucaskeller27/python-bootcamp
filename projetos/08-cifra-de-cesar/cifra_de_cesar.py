@@ -1,4 +1,9 @@
+import arte
+
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+# Imprimir a arte
+print(arte.arte)
 
 # Receber a entrada do usuário
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
@@ -39,25 +44,34 @@ def decrypt(original_text, shift_amount):
 # if direction == "decode":
 #     decrypt(original_text=text, shift_amount=shift)
 
-# TODO-3: Combine the 'encrypt()' and 'decrypt()' functions into one function called 'caesar()'. Use the value of the user chosen 'direction' variable to determine which functionality to use. Call the caesar function instead of encrypt/decrypt and pass in all three variables direction/text/shift.
-
+# Fundir as duas funções em uma só
+restart = ""
 def caesar(original_text, shift_amount, action):
-    output_text = ""
-    
-    if action == "encode":
-        index_limit = -26
-    if action == "decode":
-        index_limit = 26
-        shift_amount *= -1
-    
-    for letter in original_text:
-        try:
-            encrypted_text += alphabet[alphabet.index(letter) + shift_amount]
-        except IndexError:
-            encrypted_text += alphabet[alphabet.index(letter) + shift_amount + index_limit]
-        except ValueError:
-            encrypted_text += letter
+    while restart != "no":
+        output_text = ""
+        
+        if action == "encode":
+            index_limit = -26
+        if action == "decode":
+            index_limit = 26
+            shift_amount *= -1
+        
+        for letter in original_text:
+            try:
+                if letter not in alphabet:
+                    output_text += letter
+                else:
+                    output_text += alphabet[alphabet.index(letter) + shift_amount]
+            except IndexError:
+                output_text += alphabet[alphabet.index(letter) + shift_amount + index_limit]
+            
 
-    print(f"Here is the encoded result: {output_text}")
+        print(f"Here is the {action}d result: {output_text}")
+        restart = input('Type "yes" if you want to go again. Otherwise type "no".')
+        
+        if restart == "no":
+            print("Goodbye.")
 
 caesar(original_text=text, shift_amount=shift, action=direction)
+
+# TODO-3: Can you figure out a way to restart the cipher program?
