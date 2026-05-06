@@ -45,33 +45,32 @@ def decrypt(original_text, shift_amount):
 #     decrypt(original_text=text, shift_amount=shift)
 
 # Fundir as duas funções em uma só
-restart = ""
 def caesar(original_text, shift_amount, action):
-    while restart != "no":
-        output_text = ""
+    output_text = ""
+    
+    if action == "encode":
+        index_limit = -26
+    if action == "decode":
+        index_limit = 26
+        shift_amount *= -1
+    
+    for letter in original_text:
+        try:
+            if letter not in alphabet:
+                output_text += letter
+            else:
+                output_text += alphabet[alphabet.index(letter) + shift_amount]
+        except IndexError:
+            output_text += alphabet[alphabet.index(letter) + shift_amount + index_limit]
         
-        if action == "encode":
-            index_limit = -26
-        if action == "decode":
-            index_limit = 26
-            shift_amount *= -1
-        
-        for letter in original_text:
-            try:
-                if letter not in alphabet:
-                    output_text += letter
-                else:
-                    output_text += alphabet[alphabet.index(letter) + shift_amount]
-            except IndexError:
-                output_text += alphabet[alphabet.index(letter) + shift_amount + index_limit]
-            
-
-        print(f"Here is the {action}d result: {output_text}")
-        restart = input('Type "yes" if you want to go again. Otherwise type "no".')
-        
-        if restart == "no":
-            print("Goodbye.")
-
-caesar(original_text=text, shift_amount=shift, action=direction)
+    print(f"Here is the {action}d result: {output_text}")
+    return(input('Type "yes" if you want to go again. Otherwise type "no".\n'))
+    
+while True:
+    caesar(original_text=text, shift_amount=shift, action=direction)
+    
+    if caesar == "no":
+        print("Thank you for using the Caeser Cypher. Goodbye.")
+        break
 
 # TODO-3: Can you figure out a way to restart the cipher program?
